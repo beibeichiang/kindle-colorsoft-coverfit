@@ -1,0 +1,21 @@
+{
+  "manifest_version": 1,
+  "id": "coverfit-preview",
+  "name": "CoverFit Preview",
+  "description": "Experimental Kindle Colorsoft cover-cropping tools.",
+  "packages": {
+    "coverfit_diagnostic": {
+      "name": "CoverFit Diagnostic",
+      "author": "Beibei Jiang and contributors",
+      "description": "Read-only Colorsoft 5.19.5 capability report.",
+      "artifacts": [
+        {
+          "url": "https://github.com/beibeichiang/kindle-colorsoft-coverfit/releases/download/v0.1.0-diagnostic/coverfit_diagnostic_0.1.0_kindlehf.kpkg",
+          "version": [0, 1, 0],
+          "dependencies": [],
+          "supported_platforms": ["kindlehf"]
+        }
+      ]
+    }
+  }
+}
