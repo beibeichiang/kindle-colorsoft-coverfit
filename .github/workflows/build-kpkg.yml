@@ -1,0 +1,30 @@
+name: Build KPM package
+
+on:
+  push:
+    paths:
+      - 'kpm-package/**'
+      - '.github/workflows/build-kpkg.yml'
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build package
+        run: tar -czf coverfit_diagnostic_0.1.0_kindlehf.kpkg -C kpm-package manifest.json launch.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coverfit-diagnostic-kpkg
+          path: coverfit_diagnostic_0.1.0_kindlehf.kpkg
+      - name: Attach package to tagged release
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "$GITHUB_REF_NAME" coverfit_diagnostic_0.1.0_kindlehf.kpkg --clobber
