@@ -1,0 +1,10 @@
+{
+  "manifest_version": 2,
+  "id": "coverfit_diagnostic",
+  "name": "CoverFit Diagnostic",
+  "author": "Beibei Jiang and contributors",
+  "description": "Read-only Colorsoft cover-cache and lock-screen capability report.",
+  "version": [0, 1, 0],
+  "dependencies": [],
+  "supported_platforms": ["kindlehf"]
+}
